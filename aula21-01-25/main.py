@@ -6,6 +6,8 @@ def menu():
     print("2. Listar Produtos")
     print("3. Atualizar Produto")
     print("4. Deletar Produto")
+    print("5. Buscar Produto por nome")
+    print("6. Buscar por faixa de preço")
     print("0. Sair")
     return input("Escolha uma opção:")
 
@@ -21,6 +23,22 @@ while True:
         controller.criar_produto(id, nome, preco)
     elif opcao == "2":
         controller.listar_produtos()
+    elif opcao == "3":
+        id = int(input("Digite o ID do Produto que deseja atualizar:"))
+        nome = input("Digite o novo nome (ou deixe em branco):") or None
+        preco = input("Digite o novo preço (ou deixe em branco):")
+        preco = float(preco) if preco else None
+        controller.atualizar_produto(id, nome, preco)
+    elif opcao == "4":
+         id = int(input("Digite o ID do Produto que deseja deletar:"))
+         controller.deletar_produto(id)
+    elif opcao =="5":
+        nome = input("Digite o nome do Produto:")
+        controller.buscar_produto_nome(nome)
+    elif opcao == "6":
+        inicio = float(input("Digite o valor Inicial: "))
+        fim = float(input("Digite o valor final: "))
+        controller.buscar_produto_preco(inicio, fim)
     elif opcao == "0":
         print("Encerrando")
         break

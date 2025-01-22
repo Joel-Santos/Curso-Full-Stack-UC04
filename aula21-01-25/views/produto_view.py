@@ -1,4 +1,5 @@
 class ProdutoView:
+    
     @staticmethod
     def mostrar_produto(produto):
         print(produto)

@@ -12,6 +12,7 @@ class Produto:
     @id.setter
     def id(self, novoId):
         self.__id = novoId
+
  # Getter e Setter para o nome
     @property
     def nome(self):
@@ -28,7 +29,7 @@ class Produto:
     
     @preco.setter
     def preco(self, novoPreco):
-        self.__nome = novoPreco  
+        self.__preco= novoPreco  
     
     def __str__(self):
         return f"ID: {self.__id}, Nome: {self.__nome}, Preço: R${self.__preco}"
