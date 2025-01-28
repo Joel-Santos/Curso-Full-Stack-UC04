@@ -39,6 +39,10 @@ while True:
         inicio = float(input("Digite o valor Inicial: "))
         fim = float(input("Digite o valor final: "))
         controller.buscar_produto_preco(inicio, fim)
+    elif opcao == "7":
+        print("Escolha um critério de ordenação: 'id', 'nome', 'preco' ou 'todos'")
+        criterio = input("Critério: ").lower()
+        controller.ordenar_produtos(criterio)
     elif opcao == "0":
         print("Encerrando")
         break

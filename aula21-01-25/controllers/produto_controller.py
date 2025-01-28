@@ -52,5 +52,29 @@ class ProdutoController:
         if cont==0:
             ProdutoView.mensagem("Erro: Nenhum produto com essa faixa de preço.")
             return
+    def ordenar_produtos(self, criterio):
+    #     """Ordena os produtos por um critério escolhido (id, nome ou preco).
+    #    :param criterio: str - O critério de ordenação ('id', 'nome', 'preco', 'todos')
+    #     """
+        if not self.__produtos:
+            ProdutoView.mensagem("Nenhum produto para ordenar.")
+            return
+        produtos_temp = self.__produtos
+        if criterio == "id":
+            produtos_temp.sort(key=lambda produto: produto.id)
+            ProdutoView.mensagem("Produtos ordenados por ID.")
+        elif criterio == "nome":
+            produtos_temp.sort(key=lambda produto: produto.nome.lower())
+            ProdutoView.mensagem("Produtos ordenados por Nome.")
+        elif criterio == "preco":
+            produtos_temp.sort(key=lambda produto: produto.preco)
+            ProdutoView.mensagem("Produtos ordenados por Preço.")
+        elif criterio == "todos":
+            produtos_temp.sort(key=lambda produto: (produto.id, produto.nome.lower(), produto.preco))
+            ProdutoView.mensagem("Produtos ordenados por ID, Nome e Preço.")
+        else:
+            ProdutoView.mensagem("Critério inválido. Escolha entre 'id', 'nome', 'preco' ou 'todos'.")
+         # Exibir os produtos ordenados
+        ProdutoView.listar_produtos(produtos_temp)
 # Construir o método para ordenar a lista de produtos (ID, Nome, Preço);
 #     
