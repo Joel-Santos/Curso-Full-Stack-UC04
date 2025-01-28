@@ -59,7 +59,7 @@ class ProdutoController:
         if not self.__produtos:
             ProdutoView.mensagem("Nenhum produto para ordenar.")
             return
-        produtos_temp = self.__produtos
+        produtos_temp = self.__produtos.copy()
         if criterio == "id":
             produtos_temp.sort(key=lambda produto: produto.id)
             ProdutoView.mensagem("Produtos ordenados por ID.")

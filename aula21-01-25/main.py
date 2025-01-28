@@ -8,6 +8,7 @@ def menu():
     print("4. Deletar Produto")
     print("5. Buscar Produto por nome")
     print("6. Buscar por faixa de preço")
+    print("7. Busca Avançada")
     print("0. Sair")
     return input("Escolha uma opção:")
 
